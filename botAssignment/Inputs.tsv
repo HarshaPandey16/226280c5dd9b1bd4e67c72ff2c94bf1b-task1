@@ -1,1 +1,2 @@
 host, uname, pass, from-email, to-email, log_file
+https://automate.io/,uname@gmail.com,pass,from-email@gmail.com,to-email@gmail.com,log.tsv
