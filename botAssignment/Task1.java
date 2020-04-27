@@ -35,7 +35,6 @@ class InputParameters
 
 public class Task1 {
 	
-	//static String dropdowncss ="button.btn.btn-white2.btn-block.dropdown-toggle";
 	public static void main(String[] args) 
 	{
 		String fileName="C:\\Users\\DELL\\Desktop\\JAVA Coding\\Automate.io\\src\\botAssignment\\Inputs.tsv";
@@ -66,18 +65,21 @@ public class Task1 {
 		//Applying Implicit wait
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		//Login with Username and Password
+		//Click on Login and again click on Login
+		driver.findElement(By.cssSelector("a.c-btn.c-btn--border")).click();
+		driver.findElement(By.cssSelector("a[tabindex='8']")).click();
+		
+		//Now Login with Username and Password
 		driver.findElement(By.id("email")).sendKeys(ip.uname);
 		driver.findElement(By.id("password")).sendKeys(ip.pass);
 		driver.findElement(By.xpath(".//button[@type='submit']")).click();
 		
-		//Click on Create a Bot
+		//Click to Create a Bot
 		driver.findElement(By.linkText("Create a Bot")).click();
 		
 		//Click to Select Trigger app and selecting Gmail
 		WebElement leftDrpdwn=driver.findElement(By.cssSelector("button.btn.btn-white2.btn-block.dropdown-toggle"));
 		leftDrpdwn.click();
-		//WebElement fromGmail=driver.findElement(By.cssSelector("span.app-title.ellipsed.text-center"));
 		WebElement fromGmail=driver.findElement(By.cssSelector("div.ellipsed.help-block.identifier"));
 		String from_uname=fromGmail.getText();
 		
@@ -118,8 +120,9 @@ public class Task1 {
 	    driver.findElements(By.cssSelector("div.ellipsed.help-block.identifier")).get(1).click();
 	    driver.findElement(By.cssSelector("div.heading.ellipsed.no-padding[title='Send an Email']")).click();
 	    
-	    //Get all clickable image elements on Right
+	    //Get all clickable image elements on Right to click on Dropdowns
 	    List<WebElement> inputFields=driver.findElements(By.cssSelector("i.icon-circle_plus"));
+	    
 	    //Updating From Name 
 	    inputFields.get(1).click();
 	    driver.findElement(By.cssSelector("div.heading.ellipsed[title='From Name']")).click();
